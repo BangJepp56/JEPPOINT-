@@ -4,490 +4,236 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JEPPOINT - Professional Creative Solutions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        :root {
-            --primary-color: #1a237e;
-            --secondary-color: #0d47a1;
-            --accent-color: #2962ff;
-            --text-color: #212121;
-            --text-light: #757575;
-            --background-light: #f8f9fa;
-            --white: #ffffff;
-            --border-radius: 8px;
-            --transition: all 0.3s ease;
-            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-        }
-
-        body {
-            background-color: var(--background-light);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        /* Navbar Styles */
-        .navbar {
-            background-color: var(--white);
-            padding: 1rem 2rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--box-shadow);
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            color: var(--primary-color);
-            font-size: 1.75rem;
-            font-weight: 700;
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-items {
-            list-style: none;
-            display: flex;
-            gap: 3rem;
-        }
-
-        .nav-items a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            font-size: 0.95rem;
-            position: relative;
-            padding-bottom: 0.25rem;
-        }
-
-        .nav-items a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-color);
-            transition: var(--transition);
-        }
-
-        .nav-items a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 85vh;
-            background: linear-gradient(rgba(26, 35, 126, 0.9), rgba(13, 71, 161, 0.9)),
-                        url('https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8rem 1rem 4rem;
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            padding: 2rem;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-            font-weight: 700;
-            letter-spacing: -1px;
-            line-height: 1.2;
-        }
-
-        .hero-content p {
-            font-size: 1.25rem;
-            margin-bottom: 2.5rem;
-            color: var(--white);
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            padding: 1rem 2.5rem;
-            background-color: var(--accent-color);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 1rem;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(41, 98, 255, 0.3);
-        }
-
-        /* Services Section */
-        .services {
-            padding: 8rem 2rem;
-            background-color: var(--white);
-        }
-
-        .section-title {
-            text-align: center;
-            color: var(--text-color);
-            margin-bottom: 4rem;
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--accent-color);
-            margin: 1.5rem auto 0;
-            border-radius: 2px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .service-card {
-            background: var(--white);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            transition: var(--transition);
-            box-shadow: var(--box-shadow);
-            position: relative;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-image {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-        }
-
-        .service-content {
-            padding: 2rem;
-        }
-
-        .service-card h3 {
-            color: var(--text-color);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-        }
-
-        .service-card p {
-            color: var(--text-light);
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 8rem 2rem;
-            background-color: var(--background-light);
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .feature-item {
-            text-align: center;
-            padding: 3rem 2rem;
-            background: var(--white);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-            color: var(--accent-color);
-        }
-
-        .feature-item h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: var(--text-color);
-            font-weight: 600;
-        }
-
-        .feature-item p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 8rem 2rem;
-            background: var(--gradient);
-            position: relative;
-        }
-
-        .contact .section-title {
-            color: var(--white);
-            margin-bottom: 3rem;
-        }
-
-        .contact .section-title::after {
-            background: var(--white);
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--white);
-            padding: 3rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-info {
-            text-align: center;
-            color: var(--white);
-            margin-bottom: 2rem;
-        }
-
-        .contact-button {
-            background-color: var(--accent-color);
-            color: var(--white);
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            width: 100%;
-            justify-content: center;
-            font-size: 1rem;
-        }
-
-        .contact-button:hover {
-            background-color: #1565c0;
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 4rem 2rem 2rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            padding-bottom: 3rem;
-        }
-
-        .footer-section h4 {
-            color: var(--white);
-            margin-bottom: 1.5rem;
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-
-        .footer-section p {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 0.75rem;
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-items {
-                display: none;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .services-grid,
-            .feature-grid,
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-form {
-                padding: 2rem;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-links">
-            <a href="#" class="logo">JEPPOINT</a>
-            <ul class="nav-items">
-                <li><a href="#home">Beranda</a></li>
-                <li><a href="#services">Layanan</a></li>
-                <li><a href="#features">Keunggulan</a></li>
-                <li><a href="#contact">Hubungi Kami</a></li>
-            </ul>
-        </div>
-    </nav>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">JEPPOINT</div>
+        </nav>
+    </header>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Solusi Kreatif untuk Bisnis Anda</h1>
-            <p>Kami membantu mengembangkan bisnis Anda melalui solusi kreatif yang inovatif dan profesional</p>
-            <a href="#contact" class="cta-button">
-                Mulai Konsultasi
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-            </a>
-        </div>
-    </section>
-
-    <section id="features" class="features">
-        <div class="feature-grid">
-            <div class="feature-item">
-                <div class="feature-icon">💡</div>
-                <h3>Kreatif & Inovatif</h3>
-                <p>Solusi unik dan ide segar untuk setiap proyek</p>
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Solusi Kreatif <br>untuk Konten Anda</h1>
+                <p class="hero-description">Buat konten Anda lebih profesional dan menarik dengan layanan editing video dan desain grafis kami</p>
+                <a href="#contact" class="cta-button">
+                    Mulai Sekarang
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
             </div>
-            <div class="feature-item">
-                <div class="feature-icon">⚡</div>
-                <h3>Cepat & Efisien</h3>
-                <p>Pengerjaan tepat waktu dengan hasil maksimal</p>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon">✨</div>
-                <h3>Kualitas Terbaik</h3>
-                <p>Hasil profesional yang melampaui ekspektasi</p>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800" alt="Creative Work">
             </div>
         </div>
     </section>
 
-    <section id="services" class="services">
-        <h2 class="section-title">Layanan Kami</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Video Editing" class="service-image">
-                <div class="service-content">
-                    <h3>Video Editing</h3>
-                    <p>Jasa editing video profesional untuk konten YouTube, iklan, dokumentasi acara, dan kebutuhan multimedia lainnya.</p>
+    <!-- Problems Section -->
+<section class="problems">
+    <div class="container">
+        <h2 class="section-title">Masalah yang Kami Selesaikan</h2>
+        <div class="problems-grid">
+            <div class="problem-card">
+                <div class="problem-icon">📉</div>
+                <h3>Engagement Rendah</h3>
+                <p class="problem-description">Konten yang kurang menarik menyebabkan rendahnya engagement dari audiens target.</p>
+                <div class="solution">
+                    <span class="solution-label">Solusi:</span>
+                    <p>Optimasi konten dengan editing profesional dan storytelling yang menarik</p>
                 </div>
             </div>
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Graphic Design" class="service-image">
-                <div class="service-content">
-                    <h3>Desain Grafis</h3>
-                    <p>Layanan desain profesional untuk logo, banner, brosur, sosial media, dan berbagai kebutuhan visual lainnya.</p>
+
+            <div class="problem-card">
+                <div class="problem-icon">⏰</div>
+                <h3>Waktu Terbatas</h3>
+                <p class="problem-description">Kesulitan membuat konten berkualitas dengan deadline yang ketat.</p>
+                <div class="solution">
+                    <span class="solution-label">Solusi:</span>
+                    <p>Tim dedicated yang bekerja sesuai timeline yang disepakati</p>
                 </div>
             </div>
-            <div class="service-card">
-                <img</antArtifact>
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Web Development" class="service-image">
-                <div class="service-content">
-                    <h3>Web Development</h3>
-                    <p>Pengembangan situs web yang responsif dan fungsional untuk kebutuhan bisnis Anda, termasuk e-commerce, portofolio, dan situs perusahaan.</p>
+
+            <div class="problem-card">
+                <div class="problem-icon">💫</div>
+                <h3>Branding Tidak Konsisten</h3>
+                <p class="problem-description">Visual branding yang tidak seragam di berbagai platform.</p>
+                <div class="solution">
+                    <span class="solution-label">Solusi:</span>
+                    <p>Sistem desain yang konsisten untuk semua kebutuhan visual</p>
                 </div>
             </div>
         </div>
-    </section>
-<section id="contact" class="contact">
-    <h2 class="section-title">Hubungi Kami</h2>
-    <div class="contact-info">
-        <p>Ingin tahu lebih lanjut tentang layanan kami? Hubungi kami langsung melalui WhatsApp dengan mengklik tombol di bawah ini.</p>
-    </div>
-    <div class="contact-form">
-        <a href="https://wa.me/6282371191955" class="contact-button">
-            Hubungi Kami
-            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-        </a>
     </div>
 </section>
-   
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Tentang Kami</h4>
-                <p>JEPPOINT adalah penyedia solusi kreatif yang menawarkan berbagai layanan profesional untuk membantu bisnis Anda tumbuh dan berkembang.</p>
-            </div>
-            <div class="footer-section">
-                <h4>Layanan</h4>
-                <p>Video Editing</p>
-                <p>Desain Grafis</p>
-                <p>Web Development</p>
-            </div>
-            <div class="footer-section">
-                <h4>Kontak</h4>
-                <p>Email: info@jeppoint.com</p>
-                <p>Telepon: +622371191955</p>
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Layanan Kami</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎥</div>
+                    <h3>Video Editing</h3>
+                    <ul class="service-features">
+                        <li>Editing Video YouTube</li>
+                        <li>Video Konten Social Media</li>
+                        <li>Video Marketing</li>
+                        <li>Motion Graphics</li>
+                    </ul>
+                    <a href="#contact" class="service-cta">Hubungi Kami</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Desain Grafis</h3>
+                    <ul class="service-features">
+                        <li>Desain Logo & Branding</li>
+                        <li>Konten Social Media</li>
+                        <li>Banner & Poster</li>
+                        <li>Desain UI/UX</li>
+                    </ul>
+                    <a href="#contact" class="service-cta">Hubungi Kami</a>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 JEPPOINT. All rights reserved.</p>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Mengapa Memilih Kami</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Pengerjaan Cepat</h3>
+                    <p>Waktu pengerjaan yang efisien tanpa mengorbankan kualitas</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💎</div>
+                    <h3>Hasil Berkualitas</h3>
+                    <p>Hasil karya profesional yang sesuai dengan kebutuhan</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💯</div>
+                    <h3>Kepuasan Klien</h3>
+                    <p>Revisi hingga klien puas dengan hasilnya</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title">Pilihan Paket</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Video Editing</h3>
+                    <div class="price">Mulai dari</div>
+                    <div class="price-amount">Rp 150K</div>
+                    <ul class="pricing-features">
+                        <li>✓ Durasi 1-3 menit</li>
+                        <li>✓ Background Music</li>
+                        <li>✓ Basic Effects</li>
+                        <li>✓ 2x Revisi</li>
+                    </ul>
+                    <a href="#contact" class="pricing-cta">Pilih Paket</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Desain Grafis</h3>
+                    <div class="price">Mulai dari</div>
+                    <div class="price-amount">Rp 100K</div>
+                    <ul class="pricing-features">
+                        <li>✓ Format AI/PSD</li>
+                        <li>✓ High Resolution</li>
+                        <li>✓ Source File</li>
+                        <li>✓ 2x Revisi</li>
+                    </ul>
+                    <a href="#contact" class="pricing-cta">Pilih Paket</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+
+    <!-- Testimonials Section -->
+<section class="testimonials">
+    <div class="container">
+        <h2 class="section-title">Yang Mereka Katakan</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <img src="https://i.pravatar.cc/150?img=32" alt="Client Photo" class="client-image">
+                <div class="testimonial-content">
+                    <p class="testimonial-text">"JEPPOINT memberikan solusi yang tepat untuk konten marketing kami. Video yang dihasilkan sangat profesional dan sesuai target market."</p>
+                    <div class="client-info">
+                        <h4>Ahmad Ridwan</h4>
+                        <p>Marketing Director di TechCorp</p>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card featured">
+                <img src="https://i.pravatar.cc/150?img=44" alt="Client Photo" class="client-image">
+                <div class="testimonial-content">
+                    <p class="testimonial-text">"Kerjasama dengan JEPPOINT sangat menyenangkan. Mereka sangat detail dan selalu memberikan hasil terbaik untuk setiap project."</p>
+                    <div class="client-info">
+                        <h4>Sarah Putri</h4>
+                        <p>Content Creator</p>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <img src="https://i.pravatar.cc/150?img=57" alt="Client Photo" class="client-image">
+                <div class="testimonial-content">
+                    <p class="testimonial-text">"Tim yang sangat profesional dan responsif. Hasil desainnya selalu memukau dan tepat waktu."</p>
+                    <div class="client-info">
+                        <h4>Michael Tanjung</h4>
+                        <p>CEO StartupHub</p>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-title">Hubungi Kami</h2>
+        <div class="contact-content">
+            <p>Diskusikan project Anda dengan tim kami</p>
+            <a href="https://wa.me/6282371191955" class="contact-button">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.29 16.29L14 15L11.71 16.29C11.08 16.92 10 16.5 10 15.41V13H7C6.45 13 6 12.55 6 12C6 11.45 6.45 11 7 11H10V8.59C10 7.5 11.08 7.08 11.71 7.71L14 9L16.29 7.71C16.92 7.08 18 7.5 18 8.59V15.41C18 16.5 16.92 16.92 16.29 16.29Z"/>
+                </svg>
+                Chat WhatsApp
+            </a>
+        </div>
+    </div>
+</section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">JEPPOINT</div>
+                    <p>Professional Creative Solutions</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Kontak</h4>
+                        <p>WhatsApp: +62 823-7119-1955</p>
+                        <p>Email: info@jeppoint.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 JEPPOINT. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 </body>
